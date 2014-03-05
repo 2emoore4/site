@@ -1,3 +1,4 @@
 *.class
 raw
 .DS_Store
+*.swp

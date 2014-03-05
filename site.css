@@ -1,0 +1,17 @@
+a:link {
+    color: #2069B6;
+}
+
+a:visited {
+    color: #2069B6;
+}
+
+body {
+    background-color: #BBBBBB;
+    color: #442D01;
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-links {
+    font-weight: 300;
+}
