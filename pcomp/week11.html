@@ -1,0 +1,92 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>week 11</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                data visualization
+            </div>
+            <div class="blogSubtitle">
+                evan moore - week 11 labs
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">visualizing a single series of data</div>
+
+                <p align="center">
+                    for the single series assignment, we decided to use mta turnstile data. this data provides weekly totals of metrocard swipes for each individual station. it splits the swipes into different categories (full fare, discounted rate, weekly pass, monthly pass, etc...), but we simply used the full fare data because it was the most populated category. this data is represented by a simple bar graph. each subway station has its own bar that shows the number of full fare swipes. since there are so many stations, we didn't want to clog the screen with text, so when you hover over one of the bars, it shows the name of the station. there is a scrollbar at the top, because it would have been tough to fit all 500 stations on the screen at the same time.
+                </p>
+
+                <iframe width="480" height="360" src="http://www.youtube.com/embed/1Gpzy7xp0Pc?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    here's the code for the graph <br>
+                </p>
+
+                <script src="https://gist.github.com/2emoore4/5461696.js"></script>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">visualizing the comparison of multiple sets of data</div>
+
+                <p align="center">
+                    nyc open data provides a bunch of different data sets. for this visualization, I decided to map two different sources of water in the city: water fountains, and fire departments. obviously there are a lot more water fountains than fire departments. there are two buttons on the bottom right of the map. one button activates the water fountain overlay and the other button activates the fire department overlay. you can also show neither or both.
+                </p>
+
+                <iframe width="480" height="360" src="http://www.youtube.com/embed/_bKKptYppjw?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    here's the code for the water map <br>
+                </p>
+
+                <script src="https://gist.github.com/2emoore4/5461710.js"></script>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">animated visualization</div>
+
+                <p align="center">
+                    I found a government site that provides live data for all recent earthquakes. the feed updates once a minute (so it's not exactly live, but pretty close). obviously there aren't a ton of earthquakes at any given time so this update frequency is sufficient and it's pretty close to being live. an earthquake gets added to the feed as soon as it occurs and it disappears after it has fully subsided. as you can see from the video, each earthquake shows up as a different size. the feed also gives the magnitude of each earthquake. the bigger the circle, the greater the earthquake. I recorded this video last night, and most of the active earthquakes were in california. this is usually the case, but I actually saw a pretty big earthquake in china earlier yesterday. the blue bar at the bottom of the window fills every minute, while it's waiting to get an update. as soon as the bar fills, the data refreshes and new earthquakes are shown (if there are any). since earthquakes are fairly infrequent, I recorded the video over a span of 24 minutes, then sped it up so that you could actually see some activity without waiting a half an hour.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/t0SHVljD06k?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    here's the code for the earthquake map <br>
+                </p>
+
+                <script src="https://gist.github.com/2emoore4/5461703.js"></script>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

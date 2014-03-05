@@ -1,0 +1,114 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>midterm: concept, parts, and planning</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                midterm: concept, parts, and planning
+            </div>
+            <div class="blogSubtitle">
+                evan moore - camwear
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the concept</div>
+
+                <p align="center">
+                    This project revolves around a system that will control the positioning of a camera, preferably a webcam or a smartphone that can act as a webcam. The main idea is that a user can control a camera remotely and view the feed in real time. Ideally, it will end up like a real life virtual reality system. With wearable computing devices on the horizon, it's possible for a system like this to have many applications.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the target audience</div>
+
+                <p align="center">
+                    At first, I imagined this system being used in photography or film, in situations where it's not possible to have direct access to a camera (taking pictures with a Mars rover, filming from a camera mounted on a helicopter, etc). When I considered using it with wearable computers, I realized that there are significantly more applications. Someone could mount several of these cameras in their home and easily monitor them while on the road. Of course, what sets this apart from traditional webcams is the control system. The camera would react to head movements and the user would be able to see his home as if he were actually there. This system could also be used in teleconference type situations. You could stay at home while a moveable tablet takes your place in a meeting.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the technical system</div>
+
+                <p align="center">
+                    I'll basically be dealing with one input and one output for this system. The input is human movement, and the output is camera movement. The camera can probably just be controlled by two servo motors. One motor will rotate the camera about an X axis, and the other motor will rotate it about a Y axis. I could even add a third motor to rotate it about a Z axis. This third one wouldn't be completely necessary, but it shouldn't be too hard to implement.<br><br>
+                    For the input, I need a sensor to detect human movement. I think it will probably be best to use an IMU, or inertial measurement unit. It's basically an accelerometer and a gyroscope built into one board. At first, the IMU will probably be connected to the motors via some very long wires, because I'm assuming it would be awfully difficult to come up with a way to implement wireless sensors.<br><br>
+                    Some of the work will be in code behind the scenes. I'll need to read the sensor data and convert it to motor movement.<br><br>
+                    Luckily, I don't have to worry about transmitting webcam data because I'll be using Android devices for both the camera, and for the remote display. There are already apps available for webcam servers and clients. I could possibly (as a stretch goal?) hook up the arduino to the android camera via usb in order to execute commands, like recording or taking pictures. Of course, that would require finding a way to read serial data through the android's usb port which is probably pretty difficult.<br><br>
+                    I might come up with more stretch goals in the future, but for now, here's a basic diagram of what I'll be doing.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/YHOGo5I.jpg">
+                        <img src="http://i.imgur.com/YHOGo5I.jpg" width="480">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the parts</div>
+
+                <ul>
+                    <li>arduino</li>
+                    <li>android phone (for camera)</li>
+                    <li>android tablet (for viewing camera feed)</li>
+                    <li>tripod/camera mount (not sure how I'll do this yet)</li>
+                    <li>wearable mount for IMU (probably eyeglass frames)</li>
+                    <li>servo motor x3 @ <a href="https://www.sparkfun.com/products/9347">$13.95 each</a></li>
+                    <li>MPU-6050 IMU @ <a href="https://www.sparkfun.com/products/11028">$39.95</a></li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the problems</div>
+
+                <p align="center">
+                    The most difficult process that I forsee is reading the IMU sensor data. I'll need to find a way to combine the accelerometer with the gyroscope in order to create the most realistic movement. If this ends up being way over my head, I might be able to find a pre-existing library for reading IMU sensor data. Another tough part will be combining the two (or three) motors to get the desired movement, all while making sure it's not too bulky. If I end up trying to control the android phone with the arduino, I'll need to find a way to interface the two devices with serial communication, which might not even be possible.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the team</div>
+
+                <p align="center">
+                    me<br><br>
+                </p>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

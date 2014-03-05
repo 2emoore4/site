@@ -1,0 +1,362 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>midterm project</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                midterm project
+            </div>
+            <div class="blogSubtitle">
+                evan moore - camwear
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">intro</div>
+
+                <p align="center">
+                    here are some images and videos I took throughout the development of this device. it's a moveable camera mount/tripod that is controlled by both a d-pad and an accelerometer. you can skip to the end for my answers to the questions.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">development</div>
+
+                <p align="center">
+                    here's the inertial measurement unit (IMU) that I will be using to control the device. it has an accelerometer and a gyroscope on the same board. it basically measures rotation and position in three dimensions.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/fNQTtE3h.jpg">
+                        <img src="http://i.imgur.com/fNQTtE3h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    I had originally purchased continuous rotation servo motors for this project. I didn't realize that they were any different from normal servo motors. it turns out I wasn't able to simply give it an angle to move to. I had to give it a direction and a speed, and it would keep moving until I told it to stop. this was definitely not what I wanted, but I tried to continue anyway.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/gbG4ZKGh.jpg">
+                        <img src="http://i.imgur.com/gbG4ZKGh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here's a video of one in action.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/ExM1AfXoX88?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    I soon learned that the arduino would not be able to power two motors at the same time. I found a weird usb cable, cut it apart, and soldered two wires to its connector. this was definitely sufficient for running two motors. it'll even work with three.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/aNDidiCh.jpg">
+                        <img src="http://i.imgur.com/aNDidiCh.jpg" width="480">
+                    </a>
+                </div>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/YyEd26iUNzk?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    in addition to the IMU, I wanted to be able to control the camera with a d-pad. I found one on sparkfun that just acts as 5 different switches on the same board.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/kz9glFFh.jpg">
+                        <img src="http://i.imgur.com/kz9glFFh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here I'm just testing the d-pad to make sure that all five switches work.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/2sSrgT7aASI?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    and here, I have it rigged so that one motor will be controlled by the up/down buttons and the other motor will be controlled by the right/left buttons.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/AapVLwlX6Yw?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    at this point, I was ready to start building my structure, since my electronics seemed to be working fine. I decided (foolishly?) to build it out of legos. they turned out to be really easy for prototyping, but I later learned that they're not very sturdy. I ended up needing to superglue most of them together. anyway, I got a huge set of basic legos.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/O4YDUe7h.jpg">
+                        <img src="http://i.imgur.com/O4YDUe7h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    and I had to drill holes in them so that I could mount the motors.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/UZcwW39h.jpg">
+                        <img src="http://i.imgur.com/UZcwW39h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here's what the base for the x motor looks like.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/F7Rm8fLh.jpg">
+                        <img src="http://i.imgur.com/F7Rm8fLh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    then I needed to attach the y motor to the x motor, so I fixed some legos to one of those gear things that comes with the servo motors.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/IujBA1Qh.jpg">
+                        <img src="http://i.imgur.com/IujBA1Qh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here's what it looks like when it's assembled.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/qg7UQB8h.jpg">
+                        <img src="http://i.imgur.com/qg7UQB8h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    and here's a video of it running.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/3PUSCuF45Os?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    I needed to give it a more sturdy base, so I threw it all in a box.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/tbHXqiw-A3s?rel=0" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">roadblock</div>
+
+                <p align="center">
+                    at this point, the project was starting to look pretty good. however, I made a mount to hold my phone (for the camera), attached it to the motors, and tried it out. the legos were barely able to stay together due to the weight of my phone. the device would even topple over at times. additionally, I couldn't even get those weird servo motors to work correctly. I decided to order some correct servo motors and start over. here are the photos and videos from after this reboot.  <br><br> this time, I got a new box and securely mounted the (new) x motor to the bottom.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/mjp7ka2h.jpg">
+                        <img src="http://i.imgur.com/mjp7ka2h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    I built a new base that would go on top of the x motor. it's supposed to hold almost all of the device's weight, so it needed to be sturdy. I put some wheels on it so that it would move smoothly.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/pY5id2kh.jpg">
+                        <img src="http://i.imgur.com/pY5id2kh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here's a video to show the movement. keep in mind that I'm using a normal servo motor now, so it's much easier for me to control.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/FfNSnXOjxrM?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                   it was pretty easy to attach the new y motor to this base. in fact, it was the perfect width to fit snugly between some legos on either side of it.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/R16RVU1h.jpg">
+                        <img src="http://i.imgur.com/R16RVU1h.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                   I wanted to avoid putting too much weight on either of the motors. I really didn't want my new structure to collapse. to deal with this issue, I decided to use the y motor to drive a gear, rather than driving the phone itself. I took a wooden dowel and attached a gear to it so that it would spin at the same rate as the motor.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/0KLnZUNh.jpg">
+                        <img src="http://i.imgur.com/0KLnZUNh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                   I built up the structure a little more so that it would support a full sized dowel.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/frTGAOCh.jpg">
+                        <img src="http://i.imgur.com/frTGAOCh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    here's a video of both motors in action. I was really happy with how smoothly everything was moving.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/CGsrxR3GhDk?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                   I attached some small structures to each side of the dowel so that I could mount the smartphone.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/OgF0Zqjh.jpg">
+                        <img src="http://i.imgur.com/OgF0Zqjh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                   in order to easily swap my phone in and out, I attached a phone case to these structures. this is basically the final product.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/Eqf6vlNh.jpg">
+                        <img src="http://i.imgur.com/Eqf6vlNh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                   at last, it's time to test the device! here it is, being controlled by the dpad. obviously I can't show it with the phone mounted, since I need the phone to record the video. however, it works just as well with the weight of the phone.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/QWDg5vlx4jU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                   it works! luckily, it didn't take much additional work to adapt it for the accelerometer. I used an arduino library for my specific IMU (I have a link somewhere in my answers to the questions). this library gave me rotation values for x, y, and z dimensions. all I needed to do was to tell the motors to move to those angles. it was really simple. unfortunately, the data from the IMU was a bit noisy, so the device looks a little fidgety, but I think it works pretty well. notice that the camera moves exactly how my hand moves.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/vgvACEJX55U?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                   that's it! it's really cool to move the camera and watch the results on another screen. I'd like to show an example of this, but I need the smartphone to record my videos. I'll post my code here. keep in mind that some of the code was written by the guy who made the IMU library. you'll probably be able to tell which parts are mine. after that, I'll post the questions.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the code</div>
+
+                <script src="https://gist.github.com/2emoore4/5289151.js"></script>
+
+            </div>
+
+            <div class="blogLab">
+
+                <p align="center">
+                    and here are my answers to the questions. <br><br>
+                </p>
+
+                <div class="blogLabTitle">introduce members of the team</div>
+
+                <p align="center">
+                    just me! I'm a junior studying computer science in CAS. before this class, I had absolutely no experience with electronics, but I have a few years of programming experience. I basically did all of the work for this project. the only part I didn't do was the code for the accelerometer library. <a href="https://github.com/jrowberg">this guy</a> made a bunch of arduino libraries for different accelerometers, and luckily, he had some code for the accelerometer that I was using.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">project summary</div>
+
+                <p align="center">
+                    the name of my project is camwear, which is short for wearable camera. it's basically a moveable camera tripod that you can control with multiple devices. you can use either a directional pad or an accelerometer. this device could have a few practical applications. first, it could be used for remote photogrophy or videography. it could also be used in place of a webcam, for checking in on home security cameras, or for participating in conference calls. if you mount the accelerometer on your head or glasses, it would be a great virtual reality system. I think it could definitely be used outside of class, but I'll discuss that later.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the target audience</div>
+
+                <p align="center">
+                    like I said earlier, this device could have many practical applications. it would work really well for users of Google Glass, since that has both an accelerometer and a screen built in. however, it could really work for anyone with a screen and a keyboard. when designing this device, I tried to make it as simple and as small as possible. still, my finished product was a bit impractical. even though it works pretty well, it's fairly big and clunky. luckily, I really only built this device to show off the concept of controlling a camera remotely. this could easily be achieved with other hardware, like a security camera and a smartphone. this would take a lot more money and time though, so I think my device is good for a prototype.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the technical system</div>
+
+                <p align="center">
+                    most of the structure of this device is made from legos. they're pretty easy to use and they're definitely sturdy enough for this project once I use a lot of super glue. all of the movement is done by two servo motors. these motors are much bigger than the ones from our kits, so they can actually move a lot of weight. I have two input devices: a directional pad and an accelerometer/gyroscope combo board. the d-pad basically just acts as 5 separate switches. the accelerometer is able to output it's rotation in x, y, and z dimensions. to use the accelerometer, I needed some methods from a library built specifically for the accelerometer that I purchased. I mentioned that earlier, and you can find the link in my answer to the first question. after finding this library, it was actually pretty easy to make some functional code. it's not too dissimilar from our week 5 labs. believe it or not, the hardest part was building the lego structure. I had to make sure that the weight of my phone wouldn't make the whole contraption topple over.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">problems</div>
+
+                <p align="center">
+                    I had TONS of problems with this project. I was hoping that it would be easy to assemble and that most of my work would be coding. unfortunately, it was the other way around. as I said, the structure was extremely difficult to develop. I went through many iterations before I found one that could support enough weight to function properly. additionally, I realized last week that I ordered the wrong kind of servo motors. I had purchased 'continuous rotation servo motors'. I thought that these just rotated 260 degrees rather than 180 degrees. this was not the case. they'll rotate continously in any direction at any speed, but you can't control the exact position of the motor, which I really needed to do for this project. I ended up ordering new motors and they work much better for this.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">lessons learned</div>
+
+                <p align="center">
+                    this project was much more work than I had imagined. I definitely learned some important lessons along the way though. most importantly, not everything can be fixed with code. building my structure actually demanded the most work. luckily, I was able to get it to work, but it could have used a lot more planning. I'll definitely not be making that mistake again.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the future</div>
+
+                <p align="center">
+                    it would be fun to work on this project outside of class and I think I might do it. however, I would not continue to develop this device; I would try to find a more universal solution for this concept. this probably means that any real life project would be mostly software, since there are already moveable camera devices and there are already devices with accelerometers. i would just need to create some kind of interface between the two of them. I don't think it would be too difficult.
+                </p>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

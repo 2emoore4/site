@@ -1,0 +1,103 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>final: concept, parts, and planning</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                final: concept, parts, and planning
+            </div>
+            <div class="blogSubtitle">
+                evan moore - untitled project
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the concept</div>
+
+                <p align="center">
+                    For my final project, I'll be building on top of some of the features I used in my midterm project. However, in reality, this device will have a completely different purpose. It will use an ultrasonic rangefinder (sonar) to create a rough representation of its own surroundings. Ideally, it would be placed somewhere in a room and it should be able to calculate dimensions and even determine the location and size of some of the objects in the room.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the target audience</div>
+
+                <p align="center">
+                    This device could easily be used in some sort of 3d imaging system. If tuned correctly, you could place it in a room and it would be able to create a decent 3d model of the room. I recently saw a video demonstration of Google's self-driving car and it used sonar for some of its functionality. It used its sonar rangefinders to judge how close it was to other cars and objects. In an application like this, the device would be used to measure distance in a few directions. However, I'm hoping that my project will be much more accurate. Since my device will be standing still (rather than moving like a car), it should be much better at building a high quality 3d model.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the technical system</div>
+
+                <p align="center">
+                    This device will have only one input - the rangefinder. It will be mounted on a system quite similar to the one I constructed for my previous project. It will have two servo motors. One motor will move in the x-direction and one motor will move in the y-direction. These motors should be able to point the rangefinder 360 degrees in all directions.<br><br>
+                    The data provided by the rangefinder should be pretty simple. It just outputs a single number which is the distance (in inches) from the rangefinder to the closest object.<br><br>
+                    This data will be easy to read. However, a lot of the work will be done after the data is read. A single data point will not only hold the distance, but also the exact angles of the motors. Once these are all recorded, a program (maybe done in processing?) will have to take the data and reconstruct it visually. I hope to be able to construct a 3d model of a room that can be displayed on screen and explored using the mouse and keyboard.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the parts</div>
+
+                <ul>
+                    <li>arduino</li>
+                    <li>tripod/camera mount (from the midterm)</li>
+                    <li>servo motor x2 @ <a href="https://www.sparkfun.com/products/9347">$13.95 each</a></li> (I already have these)
+                    <li>Ultrasonic Rangefinder @ <a href="http://www.maxbotix.com/Ultrasonic_Sensors/MB1010.htm">$29.95</a></li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the problems</div>
+
+                <p align="center">
+                    The biggest problem I had with the midterm project was the stability of the camera mount. I don't expect to have the same issue with this project because the rangefinder is much lighter than the camera was. Nevertheless, I sitll hope to make it more stable. I also had issues with the IMU data being unreliable. I'm hoping that the rangefinder will be better. I have to design this project so that noisy data won't be a problem.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the team</div>
+
+                <p align="center">
+                    just me!<br><br>
+                </p>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,198 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>week 5 toy</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                evan ball
+            </div>
+            <div class="blogSubtitle">
+                evan moore - week 5 toy
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the game</div>
+
+                <p align="center">
+                    I created a little basketball type game, mostly out of cardboard and aluminum foil. The point of the game is to fling the ball into the basket. If you win, you are rewarded with an led light and some annoying tones from the piezo speaker. I'll explain some of the individual parts first, then I'll answer the assignment questions.
+                </p>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the basket</div>
+
+                <p align="center">
+                    I wanted to design the basket to be able to detect when the ball landed inside of it. Originally, I was thinking of putting a pressure sensor at the bottom, but I thought it might not be sensitive enough. I decided to make a kind of switch using the sides of the basket. Two opposite sides of the basket are covered in aluminum foil and attached to the circuit. It's just a simple switch circuit. By default, the switch is off because the sides are not touching. The 'basketball' is just a ball of aluminum foil. When it lands in the basket, it connects the two sides and activates the switch. The arduino reads this switch to detect a victory.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/ZnKxwTYh.jpg">
+                        <img src="http://i.imgur.com/ZnKxwTYh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    To test my basket switch, I wired up a circuit to make the switch turn on the led.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/U05zvM4F8ME?rel=0" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the movement</div>
+
+                <p align="center">
+                    To make the game more difficult, I wanted to make the basket move. I made a platform out of cardboard, stuck a servo motor in it, then attached the basket to the motor with a cardboard arm. In this game, the motor only moves 90 degrees, so I figured it wouldn't be too difficult.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/bidrrmFh.jpg">
+                        <img src="http://i.imgur.com/bidrrmFh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    I made another test circuit. The basket should move by default, but stop moving when there is a ball in the basket.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/G-ZAZSwYCUE?rel=0" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the launcher</div>
+
+                <p align="center">
+                    It was too easy to simply throw the ball into the basket, so I made a spring loaded launcher. I considered using springs from a pen, but I didn't think they'd be strong enough. I took the spiral off of a spiral notebook and wound it around a pencil to make a spring shape. This made two pretty strong springs.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/xRS8BUAh.jpg">
+                        <img src="http://i.imgur.com/xRS8BUAh.jpg" width="480">
+                    </a>
+                </div>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/LL7mU5ah.jpg">
+                        <img src="http://i.imgur.com/LL7mU5ah.jpg" width="480">
+                    </a>
+                </div>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/e0xHuVGh.jpg">
+                        <img src="http://i.imgur.com/e0xHuVGh.jpg" width="480">
+                    </a>
+                </div>
+
+                <p align="center">
+                    At first, I made a launcher with two rectangles of cardboard. This was way too flimsy, so I cut up a used gift card into a bunch of pieces and taped them to the cardboard to reinforce it.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/BSiZxUUh.jpg">
+                        <img src="http://i.imgur.com/BSiZxUUh.jpg" width="480">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the assembly</div>
+
+                <p align="center">
+                    Here's everything put together. I cut a notch in the basket/motor base to put the launcher, but the launcher ended up being not very stable.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/R4PgBTGh.jpg">
+                        <img src="http://i.imgur.com/R4PgBTGh.jpg" width="480">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the circuit</div>
+
+                <p align="center">
+                    The circuit basically has three outputs and two inputs. The inputs are two switches: the basket switch and a reset switch, which is just on the breadboard. The outputs are: the servo motor, an led, and a speaker. The led and the speaker are activated when the ball lands in the basket.
+                </p>
+
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/IYvuVx1h.jpg">
+                        <img src="http://i.imgur.com/IYvuVx1h.jpg" width="480">
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the code</div>
+
+                <script src="https://gist.github.com/anonymous/5097130.js"></script>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the gameplay</div>
+
+                <p align="center">
+                    Here are a few videos of me playing the game. I'm kinda cheating in the first one because I'm not using the launcher, but I just wanted to show what happens when you win.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/4mBG_xNsxJU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+                <p align="center">
+                    This is a video of me actually playing the game correctly. It took many attempts, but I finally got a basket at the end.
+                </p>
+
+                <iframe width="480" height="270" src="http://www.youtube.com/embed/ysqLqfZnVBc?rel=0" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the assignment</div>
+
+                <p align="center">
+                    This game is designed for young sports fans who, for some reason, can't play outside (maybe there's bad weather). The game only requires really basic hand eye coordination, so kids of all ages can play, even if they're not old enough to play real basketball. After testing the game, I realized that it's really difficult to make a basket using the launcher. This isn't really a big deal though, because it can easily be played by simply attempting to throw the ball into the basket. It could even be adapted to other sports, like soccer. Instead of having a basket, there would be a goal with some kind of switch or sensor to determine when the ball is in the goal. Overall, this game is easy to learn and easy to play, but not very easy to win. Maybe it needs a bigger basket or a more accurate launcher.
+                </p>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

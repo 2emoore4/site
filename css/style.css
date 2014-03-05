@@ -1,0 +1,135 @@
+body {
+	background-color:#E0E4CC;
+	font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+#title-container {
+    height: 125px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -175px;
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+}
+
+#center-sub {
+    height: 125px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -175px;
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    transition: 3s;
+}
+
+.moved {
+    left: 29%;
+}
+
+#subcontent {
+	opacity: 0;
+	position: absolute;
+	width: 22%;
+	top: 39%;
+	right: 23%;
+	font-size: 1.15em;
+    transition: 4s;
+}
+
+.shown {
+    opacity: 1;
+}
+
+.title {
+	color:#FA6900;
+	text-align: center;
+	font-size: 3em;
+	padding-bottom: 0.75em;
+}
+
+.subtitle {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.blogTitle {
+    color:#FA6900;
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 0.25em;
+    padding-top: 0.75em;
+}
+
+.blogSubtitle {
+    margin: 0px auto;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.blogLab {
+    width:480px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+}
+
+.blogLabTitle {
+    color:#FA6900;
+    text-align: center;
+    font-size: 1.25em;
+    padding-bottom: 1em;
+}
+
+.blogImage {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.blogAnswer {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.applet {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+}
+
+.instructions {
+    position: absolute;
+    text-align: center;
+    top: 680px;
+    left: 20%;
+    padding-bottom: 200px;
+}
+
+@media screen and (min-width: 1300px) {
+    .instructions {
+        position: absolute;
+        text-align: center;
+        top: 200px;
+        left: 64%;
+    }
+}
+
+a:link {
+	color:#69D2E7;
+}
+
+a:visited {
+	color:#69D2E7;
+}
+
+::-moz-selection {
+	background-color: #69D2E7;
+	color: #E0E4CC;
+}
+
+::selection {
+	background-color: #69D2E7;
+	color: #E0E4CC;
+}

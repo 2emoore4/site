@@ -1,0 +1,88 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>week 3 instrument</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                the evan-a-phone
+            </div>
+            <div class="blogSubtitle">
+                evan moore - week 3 instrument
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">here it is</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/rlMMwPsh.jpg">
+                        <img src="http://i.imgur.com/rlMMwPsh.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/V3CBRgHh.jpg">
+                        <img src="http://i.imgur.com/V3CBRgHh.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/y7vb6eAh.jpg">
+                        <img src="http://i.imgur.com/y7vb6eAh.jpg" width="480">
+                    </a>
+                </div>
+                <video width="480" controls>
+                    <source src="raw/w3iv1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    <source src="raw/w3iv1.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                </video>
+
+                <ul>
+                    <li>
+                        How does it work?<br>
+                        <div class="blogAnswer">
+                            The evan-a-phone has four controls and a speaker. The controls include two switches, a pressure sensor, and a light sensor. The light sensor determines when the instrument makes sound. It will trigger the tone method when there is no light coming in (when a finger touches the sensor). The left switch will determine whether you're playing on the lower octave or the higher octave. The right switch will increase the tone by 3 1/2 steps, or half of a major scale. The pressure sensor glides over the notes that the switches can't play.
+                        </div>
+                    </li>
+                    <li>
+                        Describe how your design follows Crawford's model of interaction, including an explanation of how both parties in the interaction (the person and the instrument) listen, think, and speak.  Be critical of your own design, and give at least 2 ideas for how the interactiveness and expressiveness of your instrument could be improved.<br>
+                        <div class="blogAnswer">
+                            Interacting with my instrument requires two actors, the instrument and the musician, and both actors must listen to each other. The instrument listens for input with its sensors, determining which fingers are touching which keys. The arduino does all of the thinking, and it speaks through its speaker obviously. The listening done by the musician is perhaps the most important part in this interaction. Without this step, it would be difficult to produce audible music. Since the pressure sensor is somewhat difficult to control, the musician is required to listen to the changes in pressure to figure out what note he's playing. The thinking and speaking done by the musician are all based on listening to the instrument's output.<br><br>
+                            I tried to make my instrument as flexible as possible. With four sensors, I was able to make the instrument play 16 notes of the C major scale. While I can play many songs using these notes, There are still many notes that are simply not possible. Ideally, I would have as many switches as possible. 88 switches would be great, because I'd be able to play all of the notes on the piano.<br><br>
+                            Another downside of this instrument is the speaker. Originally, I wanted to have the instrument play more than one note at a time. Unfortunately, this sounded terrible on the speaker from the kit. It would have been great if I had more than one speaker, or just a better quality speaker. This too, would have made the instrument much more flexible.
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">the code</div>
+
+                <script src="https://gist.github.com/2emoore4/4997629.js"></script>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

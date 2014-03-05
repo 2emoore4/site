@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<rss version="2.0">
+
+    <channel>
+
+        <title>evan moore physical computing</title>
+        <link>http://evanmoore.no-ip.org/</link>
+        <description>physical computing blog</description>
+
+        <item>
+            <title>week 2 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week2.html</link>
+            <description>introduction to electricity</description>
+            <pubDate>Wed, 13 Feb 2013 05:30:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 3 instrument</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week3i.html</link>
+            <description>the evan-a-phone</description>
+            <pubDate>Wed, 20 Feb 2013 05:30:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 3 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week3.html</link>
+            <description>introduction to microcontrollers</description>
+            <pubDate>Wed, 20 Feb 2013 05:30:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 4 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week4.html</link>
+            <description>transistors, force-sensitive resistors, and temperature sensors</description>
+            <pubDate>Wed, 27 Feb 2013 02:32:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 5 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week5.html</link>
+            <description>analog vs digital output</description>
+            <pubDate>Mon, 04 Mar 2013 02:10:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 5 toy</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week5t.html</link>
+            <description>evan basketball</description>
+            <pubDate>Wed, 06 Mar 2013 06:45:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>midterm: concept, parts, and planning</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week6m.html</link>
+            <description>camwear</description>
+            <pubDate>Tue, 11 Mar 2013 05:20:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 6 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week6.html</link>
+            <description>introduction to processing</description>
+            <pubDate>Thu, 14 Mar 2013 03:39:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>midterm: finished device</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week8.html</link>
+            <description>camwear</description>
+            <pubDate>Mon, 1 Apr 2013 05:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>midterm: updated with pictures and videos</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week8.html</link>
+            <description>camwear</description>
+            <pubDate>Mon, 1 Apr 2013 21:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 10 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week10.html</link>
+            <description>motor stuff</description>
+            <pubDate>Wed, 17 Apr 2013 21:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>final: concept, parts, and planning</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week11m.html</link>
+            <description>sonar!</description>
+            <pubDate>Wed, 24 Apr 2013 07:30:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>week 11 labs</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week11.html</link>
+            <description>data visualization</description>
+            <pubDate>Thu, 25 Apr 2013 19:17:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>final: progress update</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week12.html</link>
+            <description>3d imaging thing</description>
+            <pubDate>Fri, 03 May 2013 23:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>final: progress update 2</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week13.html</link>
+            <description>3d imaging thing</description>
+            <pubDate>Thu, 16 May 2013 05:45:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>final: done</title>
+            <link>http://evanmoore.no-ip.org/pcomp/week14.html</link>
+            <description>3d imaging thing</description>
+            <pubDate>Thu, 16 May 2013 05:45:00 GMT</pubDate>
+        </item>
+
+    </channel>
+
+</rss>   

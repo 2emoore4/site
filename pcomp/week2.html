@@ -1,0 +1,232 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>week 2</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" type="image/png" href="http://evanmoore.no-ip.org/image/icon.png">
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-38143907-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+    </head>
+
+    <body>
+
+        <div class="post">
+
+            <div class="blogTitle">
+                introduction to electricity
+            </div>
+            <div class="blogSubtitle">
+                evan moore - week 2 lab
+            </div>
+
+            <div class="blogLab">
+                <div class="blogLabTitle">setting up a breadboard</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/rqCxcW2h.jpg">
+                        <img src="http://i.imgur.com/rqCxcW2h.jpg" width="480">
+                    </a>
+                </div>
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">simple led circuit</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/R2dW3J5h.jpg">
+                        <img src="http://i.imgur.com/R2dW3J5h.jpg" width="480">
+                    </a>
+                </div>
+
+                <ul>
+                    <li>
+                        What is the purpose of the resistor?<br>
+                        <div class="blogAnswer">
+                            The voltage in the circuit drops across the resistor. Without the resistor, there would be more voltage to drop across the led. The led can't handle such a high voltage drop, so the resistor lowers it.
+                        </div>
+                    </li>
+                    <li>
+                        Using Ohm's Law (V=IR), what is the current running through this circuit?<br>
+                        <div class="blogAnswer">
+                            8.9 milliamps
+                        </div>
+                    </li>
+                    <li>
+                        Using Ohm's Law again, calculate the resistor value you would have to use in order to have only 15mA of current in this circuit?<br>
+                        <div class="blogAnswer">
+                            ~333.3 ohms
+                        </div>
+                    </li>
+                    <li>
+                        Assuming the LED drops 2.2V of voltage, how much voltage is dropped by the resistor?<br>
+                        <div class="blogAnswer">
+                            2.8 volts
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">simple led circuit with switch</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/Bb2IFM4h.jpg">
+                        <img src="http://i.imgur.com/Bb2IFM4h.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/FTQlhllh.jpg">
+                        <img src="http://i.imgur.com/FTQlhllh.jpg" width="480">
+                    </a>
+                </div>
+
+                <ul>
+                    <li>
+                        Looking at the schematic diagram, if you moved the switch so that it was connected between the resistor and the LED, how would the circuit's behavior change?<br>
+                        <div class="blogAnswer">
+                            It wouldn't change. The circuit would still be incomplete when the switch is unpressed.
+                        </div>
+                    </li>
+                    <li>
+                        Looking at the schematic diagram, if you moved the switch so that it was connected between the LED and ground, how would the circuit's behavior change?<br>
+                        <div class="blogAnswer">
+                            No change, for the same reason.
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">simple led circuit with potentiometer</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/qqCswceh.jpg">
+                        <img src="http://i.imgur.com/qqCswceh.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/MZqzlNFh.jpg">
+                        <img src="http://i.imgur.com/MZqzlNFh.jpg" width="480">
+                    </a>
+                </div>
+
+                <ul>
+                    <li>
+                        Why is the 560 ohm resistor necessary?<br>
+                        <div class="blogAnswer">
+                            If you turn the potentiometer all the way down, it would be as if there's nothing there. You would need a resistor to make up for the lack of resistance in the potentiometer. It prevents the led from frying.
+                        </div>
+                    </li>
+                    <li>
+                        How much current is flowing through the circuit when the 10kohm potentiometer is turned all the way up (offering the maximum resistance)?<br>
+                        <div class="blogAnswer">
+                            ~3.2 mA
+                        </div>
+                    </li>
+                    <li>
+                        What other types of variable resistors do you know about?<br>
+                        <div class="blogAnswer">
+                            rheostat
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">dueling leds circuit with potentiometer</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/kYiTa6Fh.jpg">
+                        <img src="http://i.imgur.com/kYiTa6Fh.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/OHtwoGth.jpg">
+                        <img src="http://i.imgur.com/OHtwoGth.jpg" width="480">
+                    </a>
+                </div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/wj4TxgFh.jpg">
+                        <img src="http://i.imgur.com/wj4TxgFh.jpg" width="480">
+                    </a>
+                </div>
+
+
+                <ul>
+                    <li>
+                        Give a quick explanation of why this circuit behaves the way it does. Include an explanation for how the current going through each LED is affected by a single turn of the potentiometer.<br>
+                        <div class="blogAnswer">
+                            The potentiometer has three poles, so turning it will adjust which two poles have a higher or lower resistance. If the left two poles (or vice versa) have a lower resistance, then there will be a lower voltage drop on that side of the circuit and the led will be brighter.
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">capacitor charging circuit</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/9EbriHph.jpg">
+                        <img src="http://i.imgur.com/9EbriHph.jpg" width="480">
+                    </a>
+                </div>
+                <video width="480" controls>
+                    <source src="raw/w2v1.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    <source src="raw/w2v1.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                </video>
+
+                <ul>
+                    <li>
+                        How does adding a 2.2kohm resistor between the pushbutton and the capacitor affect the capacitor's charging behavior?<br>
+                        <div class="blogAnswer">
+                            The capacitor would simply take longer to fully charge.
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="blogLab">
+
+                <div class="blogLabTitle">capacitor discharging circuit with led decay</div>
+                <div class="blogImage">
+                    <a href="http://i.imgur.com/TLYBTUXh.jpg">
+                        <img src="http://i.imgur.com/TLYBTUXh.jpg" width="480">
+                    </a>
+                </div>
+                <video width="480" controls>
+                    <source src="raw/w2v2.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                    <source src="raw/w2v2.ogv" type='video/ogg; codecs="theora, vorbis"'>
+                </video>
+
+                <ul>
+                    <li>
+                        Looking at the circuit schematic diagram, why does the capacitor discharge up through the LED part of the circuit, and not directly from the capacitor down to ground?<br>
+                        <div class="blogAnswer">
+                            Electricity won't move from the capacitor to ground because there is no voltage drop in that part of the circuit. There is, however, a voltage drop in the part of the circuit with the resistor and the led, so that's where the electricity will flow.
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
