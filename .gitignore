@@ -2,3 +2,6 @@
 raw
 .DS_Store
 *.swp
+server
+itp/js
+node_modules

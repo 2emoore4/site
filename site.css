@@ -1,17 +1,22 @@
 a:link {
-    color: #2069B6;
+    color: #3a78ad;
 }
 
 a:visited {
-    color: #2069B6;
+    color: #3a78ad;
 }
 
 body {
-    background-color: #BBBBBB;
-    color: #442D01;
+    background-color: #aae3cb;
+    color: #0d2328;
     font-family: 'Roboto', sans-serif;
+    font-weight: 300;
 }
 
-.section-links {
-    font-weight: 300;
+#content {
+    width: 50%;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
 }
