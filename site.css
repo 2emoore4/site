@@ -14,9 +14,20 @@ body {
 }
 
 #content {
-    width: 50%;
+    width: 60%;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     font-size: 2em;
+}
+
+.section-link .hint {
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.25s;
+}
+
+.section-link:hover .hint {
+    visibility: visible;
+    opacity: 1;
 }
