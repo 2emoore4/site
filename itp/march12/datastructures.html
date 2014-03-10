@@ -5,59 +5,86 @@
 <title>Parsing Data Structures</title>
 
 <script type="text/javascript">
-  /*
-     MiniLisp is the name of the language we are designing
-     this is the JavaScript object that will contain all of
-     the functions and data that will make the language work
-  */
-  var MiniLisp = {
-    /*
-      eval is short for evaluate. It is the function that will
-      take as input the parsed array and implement the behavior
-      of the language
-    */
-    eval: function(parsed_array) {
-      // if the first item in the parsed array is '+', perform addition
-      if(parsed_array[0] == '+') {
-        return parsed_array[1] + parsed_array[2];
-
-      } else {
-        // throw is how you generate an error in JavaScript
-        throw new SyntaxError("Unrecognized operator '" + parsed_array[0] +"'!")
-
-      }
+    var MiniLisp = {
+        eval: function(parsed_array) {
+            for (var i = 1; i < parsed_array.length; i++) {
+                if (parsed_array[i] instanceof Array) {
+                    parsed_array[i] = MiniLisp.eval(parsed_array[i]);
+                }
+            }
+            switch(parsed_array[0]) {
+                case '+':
+                    sum = parsed_array[1];
+                    for (i = 2; i < parsed_array.length; i++) {
+                        sum += parsed_array[i];
+                    }
+                    return sum;
+                    break;
+                case '-':
+                    sub = parsed_array[1];
+                    for (i = 2; i < parsed_array.length; i++) {
+                        sub -= parsed_array[i];
+                    }
+                    return sub;
+                    break;
+                case '*':
+                    mul = parsed_array[1];
+                    for (i = 2; i < parsed_array.length; i++) {
+                        mul *= parsed_array[i];
+                    }
+                    return mul;
+                    break;
+                case '/':
+                    div = parsed_array[1];
+                    for (i = 2; i < parsed_array.length; i++) {
+                        div /= parsed_array[i];
+                    }
+                    return div;
+                    break;
+                case '<':
+                    return parsed_array[1] < parsed_array[2];
+                    break;
+                case '>':
+                    return parsed_array[1] > parsed_array[2];
+                    break;
+                case '=':
+                    return parsed_array[1] == parsed_array[2];
+                    break;
+                case 'if':
+                    if (parsed_array[1]) {
+                        return parsed_array[2];
+                    } else {
+                        return parsed_array[3];
+                    }
+                    break;
+                default:
+                    throw new SyntaxError("Unrecognized operator '" + parsed_array[0] +"'!")
+                    break;
+            }
+        }
     }
-  }
+
+    PLT.refresh = false;
 </script>
 
-<!--
-
-Full documentation: http://pegjs.majda.cz/documentation#grammar-syntax-and-semantics-parsing-expression-types
-
-'x'   : match the literal character 'x'
-[xyz] : match one of the literal character 'x', 'y', or 'z'
-x+    : match x 1 or more times
-x*    : match x 0 or more times
-x?    : match x 0 or 1 times
-!x    : match anything but the match x
-x/y   : match x or y, trying in that order
-v:x   : assign the result of the match x to the variable v
-
--->
-
 <grammar>
-  start                         = o:operation { return MiniLisp.eval( o ) }
+  start             = o:thing { return MiniLisp.eval(o) }
+  thing             = operation/comparison/conditional
 
-  operation                     = '(' space op:operator space args:expression+ ')' space { return [ op ].concat(args) }
-  operator                      = '+' / '-' / '/' / '*'
+  operation         = '(' space op:operator space args:expression+ ')' space { return [op].concat(args) }
+  operator          = '+' / '-' / '/' / '*'
 
-  expression                    = operation / number
+  conditional       = '(' space 'if' space comp:comparison space a:expression space b:expression ')' space { return ["if", comp, a, b] }
+  comparison        = '(' space op:comp_op space a:expression space b:expression ')' space { return [op, a, b] }
+  comp_op           = '<' / '>' / '='
 
-  number                        = d:digit+ space { return parseInt( d.join('') ) }
-  digit                         = [0123456789]
+  expression        = operation / number
 
-  space                         = [ ]* / !. { return undefined }
-  mandatory_space               = [ ]+ / !. { return undefined }
+  number            = d:digit+ space { return parseInt( d.join('') ) }
+  digit             = [0123456789]
+
+  space             = [ ]* / !. { return undefined }
+  mandatory_space   = [ ]+ / !. { return undefined }
 </grammar>
 
 
@@ -78,7 +105,8 @@ v:x   : assign the result of the match x to the variable v
 <code>(- 100 (+ 29 29))</code>
 
 <h3>Extra: Make multiple arguments work</h3>
-<code>((+ 20 20 30 40 50)</code>
+there was an extra open paren here that I removed
+<code>(+ 20 20 30 40 50)</code>
 <code>(* (- 10 5) (+ 20 20 30 40 50))</code>
 
 <h3>Extra: Make comparisons work</h3>
