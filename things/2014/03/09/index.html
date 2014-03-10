@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>drawing stuff</title>
+        <link rel="stylesheet" href="../../../../site.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700,700italic,300' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id="content">
+            evan moore<br>
+            march 9, 2014<br>
+            drawing stuff<br>
+            <div class="blog-post">
+This is my first blog post. I'm redesigning my website and I have some in-progress projects to show. I'm not sure how often I'll post here.<br><br>
+
+I've always wanted to make 3d animations, but I've never spent enough time learning Maya, or Blender, or any other 3d software. I've had a bunch of free time recently, so I figured I'd try to start making some animations. However, I'm still not going to bother learning any 3d software...<br><br>
+
+I wanted to start from scratch by hand drawing a few frames, but I'm terrible at drawing. I'm not terrible at writing javascript though, so I figured I'd do a several-frame animation in a browser.<br><br>
+
+I've been watching a lot of cartoons recently, and I really like the style of hand drawn animation. Therefore, I wanted to make my animation look hand drawn. I started by crinkling four pieces of paper and scanning them. These would be the background.<br><br>
+
+<div class="blog-image">
+    <img src="bg.gif" width="100%"></img>
+</div><br><br>
+
+I'm using a js library called pixi.js, which makes it easy to load and animate sprites. I'm using it mostly for the background. The only other bit of pixi.js that I'm using is a method called drawLine, which is a hook into WebGL. At some point, I'll probably figure out drawing with WebGL, or even just Canvas.<br><br>
+
+My first experiment was to make a simple drawing of a house. By 'simple', I mean that I wanted to use as few inputs as possible to make a convincing 'hand-drawn' image. I decided that I would define a bunch of vertices, then draw lines between the vertices. At every frame, when drawing lines, I would add a bit of noise to the coordinates of each vertex, to make it look uneven. It does this 'deformation' every frame, so no two frames are the same. After some cool bugs...<br><br>
+
+<div class="blog-image">
+    <iframe src="//player.vimeo.com/video/88619335?color=3a78ad" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div><br><br>
+
+I finally got some good results<br><br>
+
+<div class="blog-image">
+    <iframe src="//player.vimeo.com/video/88619334?color=3a78ad" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div><br><br>
+
+You'll notice that, in addition to deforming each vertex, the lines are not actually straight. That's because, each time a vertex is added to a polygon, a certain amount of 'sub-vertices' are created, which lie between the last-created vertex and the new vertex. These sub-vertices are also deformed at every frame, which makes the lines look imperfect.<br><br>
+
+I guess, at this point, I kinda accomplished my goal. I hadn't really made more than one frame of animation, but it looked like I actually did. I tried to come up with animation ideas, so I thought maybe I could make a stick figure. And this stick figure would have a pencil. He'd be able to draw things that can come to life in the animation. I had an idea that, in addition to his shapes simply deforming, maybe they could even move around, or rotate in three dimensions.<br><br>
+
+Technically, this wouldn't be too difficult. I had <a href="http://github.com/2emoore4/graphics" target="_blank">some old code</a> for a 3d renderer that I wrote about a year ago. In its early stages, this engine could render 3d geometries as wireframes without any shading or textures. This would be perfect for my 2d project, since I made a cool draw_line method that makes hand-drawn-looking lines. So I ported some of this renderer to coffeescript (by the way, I'm using coffeescript. I don't know why, but it's fine). Now I can render 3d geometries, and still make them look like someone drew them.<br><br>
+
+<div class="blog-image">
+    <iframe src="//player.vimeo.com/video/88619336?color=3a78ad" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div><br><br>
+
+I started to port my old matrix code, but then switched to a library called glmatrix. So yeah, this is all I have so far. I'm going to continue to port my old renderer to coffeescript. I have more features, like chaining geometries together, which would be useful for animation. I also have some shaders, although I don't want to do any fancy shading. Maybe I'll color in the faces with a solid color, or try to make it like it was done with a crayon, or bits of colored construction paper. After porting the rest of my renderer, I'll try to think of some more story or game ideas. I'm thinking it'll be cool for 2d shapes to be able to seamlessly morph into 3d shapes. That shouldn't be too difficult. I'll definitely have some updates on this in the coming days, probably after my Programming Languages midterm on Tuesday night.<br><br>
+
+This renderer <a href="http://github.com/2emoore4/noize" target="_blank">is on github</a>. If you want to run it, make sure you download pixi.js and gl-matrix.js and link them in the html file.<br><br>
+            </div>
+        </div>
+    </body>
+</html>
