@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>march26</title>
+        <link rel="stylesheet" href="../../../site.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700,700italic,300' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id="content">
+            evan moore<br>
+            march 26<br>
+            evanlang (I'm not good at naming things)
+            <div class="blog-post">
+                postscript stuff is at the bottom<br><br>
+                My language ended up being a kinda boring extension of the mini lisp that we were building in class. I added a bunch of built in methods for storing variables, doing for loops, and executing blocks of code.<br><br>
+                My original goal wasn't as boring, so hopefully, I can continue to work on this and reach that goal. I started off by brainstorming with a pencil and paper. I tried writing/drawing some random code, and I noticed that I was often drawing arrows to connect things like functions and variable names. So I figured it would be cool to make a kinda visual programming language. It obviously wasn't a very original idea, as this has been done plenty of times. But it would be cool to do it in a browser. The problem was that with peg.js, I can only deal with text. So I thought I'd make a language where you can assign variables or link things using arrows like this: '->' or '<-' or '<->'. I made a basic example where '->' would assign the left side to a variable name, which was on the right side. It worked fine, but the parsing was annoying and complicated. It made much more sense to just keep the language lisp-y and make a function that would do the assignment. So at this point, I reverted back to building on top of our mini lisp language, with added functions. It's so easy to add functionality to the language this way, since you only need to define a new function. I think that, eventually (maybe for the final project?), I will continue to build on the original idea of drawing arrows on a canvas element or something, although I guess it might be tough to use peg.js then. We'll see.<br><br>
+                So for now, this language is just a basic lisp. The function "#" assigns the evaluation of the first argument to the name of the second argument. These variables are saved in lang.table, along with all of the built in functions. This makes table lookups really easy. Whenever a function is looking at its arguments, it either encounters a variable name, where it'll do a table lookup, or a primitive or another function, where it will just eval that statement. The math and conditional functions are pretty straightforward. There's a function "." whose arguments are just lines of code that get executed in order. This is definitely the first step towards defining arbitrary functions. You can see this being used in the last few code examples. It helped to be able to do more than just one thing inside a for loop. That example is just the fibonacci sequence.<br><br>
+                <a href="lang.html" target="_blank">here's the demo</a> and here's the code:<br><br>
+                <script src="https://gist.github.com/2emoore4/9785498.js"></script>
+            </div><br>
+            postscript
+            <div class="blog-post">
+                <a href="thing.ps">here's my postscript document</a><br><br>
+                I mostly played around with drawing lines in the shape of sine functions. Then I read about writing text, so then I wrote text in the shape of sine functions. I found examples for using the image element, so I made one of those and played around with transformations.<br><br>
+                here's my code:<br><br>
+                <script src="https://gist.github.com/2emoore4/9786007.js"></script>
+            </div><br>
+        </div>
+    </body>
+</html>

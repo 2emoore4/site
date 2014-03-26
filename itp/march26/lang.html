@@ -1,0 +1,153 @@
+<script src="../pltjs/js/sugar.js"></script>
+<script src="../pltjs/js/peg.js"></script>
+<script src="../pltjs/js/plt.js"></script>
+
+<title>evanlang</title>
+
+<script type="text/javascript">
+    var lang = {
+        eval: function(parsed_array) {
+            var name = parsed_array[0];
+            return lang.table[name](parsed_array);
+        },
+
+        lookup: function(id) {
+            return lang.table[id];
+        },
+
+        get_arg: function(arg_num, arg_list) {
+            if (typeof(arg_list[arg_num]) === "string") {
+                return lang.lookup(arg_list[arg_num]);
+            } else if (arg_list[arg_num] instanceof Array) {
+                return lang.eval(arg_list[arg_num]);
+            } else {
+                return arg_list[arg_num];
+            }
+        },
+
+        table: {
+            "+": function(arg_list) {
+                sum = lang.get_arg(1, arg_list);
+                for (i = 2; i < arg_list.length; i++) {
+                    sum += lang.get_arg(i, arg_list);
+                }
+                return sum;
+            },
+            "-": function(arg_list) {
+                sub = lang.get_arg(1, arg_list);
+                for (i = 2; i < arg_list.length; i++) {
+                    sub -= lang.get_arg(i, arg_list);
+                }
+                return sub;
+            },
+            "*": function(arg_list) {
+                mul = lang.get_arg(1, arg_list);
+                for (i = 2; i < arg_list.length; i++) {
+                    mul *= lang.get_arg(i, arg_list);
+                }
+                return mul;
+            },
+            "/": function(arg_list) {
+                div = lang.get_arg(1, arg_list);
+                for (i = 2; i < arg_list.length; i++) {
+                    div /= lang.get_arg(i, arg_list);
+                }
+                return div;
+            },
+            "%": function(arg_list) {
+                mod = lang.get_arg(1, arg_list);
+                for (i = 2; i < arg_list.length; i++) {
+                    mod = mod % lang.get_arg(i, arg_list);
+                }
+                return mod;
+            },
+            "<": function(arg_list) {
+                return lang.get_arg(1, arg_list) < lang.get_arg(2, arg_list);
+            },
+            ">": function(arg_list) {
+                return lang.get_arg(1, arg_list) > lang.get_arg(2, arg_list);
+            },
+            "=": function(arg_list) {
+                return lang.get_arg(1, arg_list) == lang.get_arg(2, arg_list);
+            },
+            "if": function(arg_list) {
+                if (lang.get_arg(1, arg_list)) {
+                    return lang.get_arg(2, arg_list);
+                } else {
+                    return lang.get_arg(3, arg_list);
+                }
+            },
+            "#": function(arg_list) {
+                var value = lang.get_arg(1, arg_list);
+                lang.table[arg_list[2]] = value;
+                return value;
+            },
+            "for": function(arg_list) {
+                statements = new Array();
+                repeat = lang.get_arg(1, arg_list);
+                for (var i = 0; i < repeat; i++) {
+                    statements.push(arg_list[2].slice());
+                    lang.eval(statements[i]);
+                }
+                return "for";
+            },
+            ".": function(arg_list) {
+                for (var i = 1; i < arg_list.length; i++) {
+                    lang.eval(arg_list[i]);
+                }
+                return "block";
+            }
+        }
+    }
+
+    PLT.refresh = false;
+</script>
+
+<grammar>
+    start             = space e:expression { return lang.eval(e) }
+    expression        = operation / number / identifier
+
+    operation         = '(' space op:operator space args:expression+ ')' space { return [op].concat(args) }
+    operator          = '+' / '-' / '/' / '*' / '<' / '>' / '=' / 'if' / '#' / 'for' / '%' / '.'
+  
+    letter            = [a-zA-Z]
+    id_char           = letter / digit
+    identifier        = h:letter t:id_char* space { return h + t.join('') }
+  
+    number            = d:digit+ space { return parseInt( d.join('') ) }
+    digit             = [0123456789]
+  
+    space             = white_space* / !. { return undefined }
+    mandatory_space   = white_space+ / !. { return undefined }
+    white_space       = ' ' / '\n'
+</grammar>
+
+<code>(# (+ 1 2) varname)</code>
+<code>(/ varname 2)</code>
+<code>(% 19 varname)</code>
+<code>(+ varname varname)</code>
+<code>(# (+ varname varname) varname)</code>
+<code>(+ varname varname)</code>
+<code>(# varname  another)</code>
+<code>(+ another another)</code>
+<code>(# (* 1 another) another)</code>
+<code>(for 9 (+ 1 another))</code>
+<code>(for 9 (# (+ 1 another) another))</code>
+<code>(. (# 1 something) (# 2 somethingelse))</code>
+<code>
+(.
+    (# 1 nminustwo)
+    (# 1 nminusone)
+    (for 5 (.
+        (# (+ nminustwo nminusone) sum)
+        (# nminusone nminustwo)
+        (# sum nminusone)
+    ))
+)
+</code>
+<code>
+(if (= 13 sum)
+    (# 1 correct)
+    (# 0 correct)
+)
+</code>

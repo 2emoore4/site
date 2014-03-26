@@ -1,0 +1,17 @@
+create dictionary object in lang
+create call function which checks for method, checks arg numbers?, then calls function
+call function could maybe have fuzziness/spellcheck
+create shitty variable symbol table
+put a bunch of default functions in that dictionary
+
+recursion
+arbitrary arg list length
+conditionals: if, else, switch?
+loops: for, while
+define functions
+blocks of code
+booleans
+primitives
+
+draw diagrams?
+arrows, lines

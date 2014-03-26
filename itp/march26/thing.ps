@@ -1,0 +1,69 @@
+/inch {72 mul} def
+
+/sinprint {
+    newpath moveto
+    0.5 inch 40 sin inch printsine
+    0.5 inch 80 sin inch printsine
+    0.5 inch 120 sin inch printsine
+    0.5 inch 160 sin inch printsine
+    0.5 inch 200 sin inch printsine
+    0.5 inch 240 sin inch printsine
+    0.5 inch 280 sin inch printsine
+    0.5 inch 320 sin inch printsine
+    0.5 inch 0 sin inch printsine
+    0.5 inch 40 sin inch printsine
+    0.5 inch 80 sin inch printsine
+    0.5 inch 120 sin inch printsine
+    0.5 inch 160 sin inch printsine
+    0.5 inch 200 sin inch printsine
+    0.5 inch 240 sin inch printsine
+    0.5 inch 280 sin inch printsine
+    0.5 inch 320 sin inch printsine
+    0.5 inch 360 sin inch printsine
+    stroke
+} def
+
+/sinpath {
+    newpath moveto
+    0.5 inch 40 sin inch rlineto
+    0.5 inch 80 sin inch rlineto
+    0.5 inch 120 sin inch rlineto
+    0.5 inch 160 sin inch rlineto
+    0.5 inch 200 sin inch rlineto
+    0.5 inch 240 sin inch rlineto
+    0.5 inch 280 sin inch rlineto
+    0.5 inch 320 sin inch rlineto
+    0.5 inch 0 sin inch rlineto
+    0.5 inch 40 sin inch rlineto
+    0.5 inch 80 sin inch rlineto
+    0.5 inch 120 sin inch rlineto
+    0.5 inch 160 sin inch rlineto
+    0.5 inch 200 sin inch rlineto
+    0.5 inch 240 sin inch rlineto
+    0.5 inch 280 sin inch rlineto
+    0.5 inch 320 sin inch rlineto
+    0.5 inch 360 sin inch rlineto
+    stroke
+} def
+
+/printsine {
+    /Times-Roman findfont 6 scalefont setfont
+    rmoveto (sine) show
+} def
+
+0 inch 5 inch sinpath
+1 inch 5 inch sinprint
+2 inch 5 inch sinpath
+3 inch 5 inch sinprint
+4 inch 5 inch sinpath
+5 inch 5 inch sinprint
+6 inch 5 inch sinpath
+7 inch 5 inch sinprint
+8 inch 5 inch sinpath
+9 inch 5 inch sinprint
+
+300 400 translate
+72 72 scale
+
+80 8 1 [40 10 0 8 0 0] {<c936>} image
+showpage

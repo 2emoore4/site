@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>drawing stuff</title>
+        <link rel="stylesheet" href="../../../../site.css">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,400italic,700,700italic,300' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+        <div id="content">
+            evan moore<br>
+            march 13, 2014<br>
+            drawing update<br>
+            <div class="blog-post">
+Gotta keep working or I'm going to go crazy. So I'm working on the drawing renderer.<br><br>
+
+Let's look through the commit log and see what's new. There's a lot. So last time, I had some 2d shapes and some 3d shapes, but I was kinda faking the 3d shapes. I'm pretty sure I've ported most of my old 3d renderer. I have a proper geometry class which supports cube, sphere, cylinder, and torus primitives. Except they don't really look hand drawn, but whatever. All of the matrix transformations work properly, and geometries can even have children, which transform properly. All of these changes were behind the scenes, so it all looks the same as the last demo.<br><br>
+
+The next thing I did was make it so that the 2d shapes are actually 3d. They're just fake 2d (all of their z coordinates are 0). This way, I can rotate them and move them all I want. Plus I can even add 2d shapes to 3d geometries, or vice versa, which might be useful.<br><br>
+
+So here's an example of a fake 2d shape, with a dumb bug:<br><br>
+
+<div class="blog-image">
+    3dhouse video
+</div><br><br>
+
+And here's the same thing, with the bug fixed. So the bug was that I was creating the house with coordinates as if it were already translated to the right. But I actually needed to create it as if it were centered, then translate it later. This is easier anyway.<br><br>
+
+<div class="blog-image">
+    3dhousegood video
+</div><br><br>
+
+I can even transform the world, which is the highest level parent geometry (everything is a child of world). This simulates "camera" movement.<br><br>
+
+<div class="blog-image">
+    3dworldshit video
+</div><br><br>
+
+And here's a blockhead guy.<br><br>
+
+<div class="blog-image">
+    3dblockhead video
+</div><br><br>
+
+So there ya go. Most of this stuff was behind the scenes, but still important. Still have a bunch of stuff that I want to do. One thing is shading to simulate either crayon coloring or construction paper. That would be cool. Also if I do that, I'll need to make a z buffer type renderer, which will be nice because it'll also hide all of the back faces. Also I want to focus on character creation and animation. I also want to make a human face with different emotions. I'll try to figure out inverse kinematics as well. Lots of stuff, but it's all pretty necessary before I start to make something.<br><br>
+            </div>
+        </div>
+    </body>
+</html>
