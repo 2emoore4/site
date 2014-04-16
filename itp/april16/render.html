@@ -1,0 +1,345 @@
+<meta charset="utf-8">
+
+<script src="jquery.js"></script>
+<script src="jqconsole.js"></script>
+<script src="sugar.js"></script>
+<script src="peg.js"></script>
+<script src="plt.js"></script>
+<body></body>
+<script src="pixi.dev.js"></script>
+<script src="gl-matrix-min.js"></script>
+<script src="perlin.js"></script>
+<script src="render/util.js"></script>
+<script src="render/person.js"></script>
+<script src="render/test.js"></script>
+
+<script type="text/javascript">
+  // uncomment next line to enable refresh
+  // PLT.refresh = true
+
+  // write helper functions and semantics here
+  var Munch = {
+    dictionary: {
+      /*
+      defines a new word
+
+      def expects two items on the stack
+      the first item is the name of the word as a string
+      second item is the value of the word
+
+      examples
+
+      2014 "year" def year            -> [2014]
+      2014 "year" def year year year  -> [2014, 2014, 2014]
+      2014 "year" def year 1000 +       -> [3014]
+      */
+      'def': function(stack) {
+        var name = stack.pop();
+        var value = stack.pop();
+
+        Munch.dictionary[name] = value;
+
+        return stack;
+      },
+
+      /*
+      conditionally excutes a quotation
+
+      if expects two items on the stack
+      the first item is the quotation to conditionally execute
+      the second item is a number. if that number is zero, the quotation is not
+      executed. otherwise, it is.
+
+      examples
+
+      0 ["hello"] if -> []
+      1 ["hello"] if -> ["hello"]
+      10 20 0 [+] if -> [10, 20]
+      10 20 1 [+] if -> [30]
+      */
+      'if': function(stack) {
+        var quot = stack.pop();
+        var num = stack.pop();
+        if(num != 0) {
+          // if the number is not zero, evaluate the quotation given the current stack
+          stack = Munch.eval(quot, stack);
+        }
+
+        return stack;
+      },
+
+      /*
+      adds two numbers
+
+      + expects two items on the stack
+      it pops them both, adds, them, then pushes the result on the stack
+
+      examples
+
+      4 5 + -> [9]
+      10 4 5 + + -> [19]
+      */
+      '+': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(a + b);
+
+        return stack;
+      },
+
+      '-': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b - a);
+
+        return stack;
+      },
+
+      '*': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(a * b);
+
+        return stack;
+      },
+
+      '/': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b / a);
+
+        return stack;
+      },
+
+      '÷': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b % a);
+
+        return stack;
+      },
+
+      'true': function(stack) {
+        stack.push(true);
+        return stack;
+      },
+
+      'false': function(stack) {
+        stack.push(false);
+        return stack;
+      },
+
+      'dup': function(stack) {
+        var a = stack.pop();
+        stack.push(a);
+        stack.push(a);
+        return stack;
+      },
+
+      'swap': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(a);
+        stack.push(b);
+        return stack;
+      },
+
+      'rollup': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        var c = stack.pop();
+        stack.push(b);
+        stack.push(a);
+        stack.push(c);
+        return stack;
+      },
+
+      'rolldown': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        var c = stack.pop();
+        stack.push(a);
+        stack.push(c);
+        stack.push(b);
+        return stack;
+      },
+
+      '>': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b > a);
+        return stack;
+      },
+
+      '=': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b == a);
+        return stack;
+      },
+
+      '<': function(stack) {
+        var a = stack.pop();
+        var b = stack.pop();
+        stack.push(b < a);
+        return stack;
+      },
+
+      'random': function(stack) {
+        stack.push(Math.random());
+        return stack;
+      },
+
+      'times': function(stack) {
+        var n = stack.pop();
+        var quot = stack.pop();
+        for (i = 0; i < n; i++) {
+            stack.push(quot[0]);
+            stack = Munch.eval(stack);
+        }
+        return stack;
+      },
+
+      'maybe': function(stack) {
+        var r = Math.random();
+        var quot = stack.pop();
+        if (r < 0.5) {
+            stack = Munch.eval(quot);
+        }
+        return stack;
+      },
+
+      '☃': function(stack) {
+        return Math.sin(Math.random(Math.cos(Math.tan(Math.random()))));
+      },
+
+      'wave': function(stack) {
+        person.wave();
+        return stack;
+      },
+
+      'sit': function(stack) {
+        person.sit();
+        return stack;
+      },
+
+      'stand': function(stack) {
+        person.stand();
+        return stack;
+      },
+
+      'walk': function(stack) {
+        person.toggle_walk();
+        return stack;
+      },
+
+      'shrug': function(stack) {
+        person.shrug_shoulders();
+        return stack;
+      },
+
+      'happy': function(stack) {
+        person.happy();
+        return stack;
+      },
+
+      'angry': function(stack) {
+        person.angry();
+        return stack;
+      },
+
+      'sad': function(stack) {
+        person.sad();
+        return stack;
+      },
+
+      'rotate': function(stack) {
+        var x = stack.pop();
+        var y = stack.pop();
+        var z = stack.pop();
+        r.rotate_x(x);
+        r.rotate_y(y);
+        r.rotate_z(z);
+        return stack;
+      },
+
+      'translate': function(stack) {
+        var x = stack.pop();
+        var y = stack.pop();
+        var z = stack.pop();
+        r.translate(x, y, z);
+        return stack;
+      }
+    },
+
+    eval: function(source, initialStack) {
+      // the stack we are operating on
+      var stack;
+      if(initialStack != undefined)
+        // if an initial stack is provided, use that
+        stack = initialStack;
+      else
+        // otherwise, use an empty array
+        stack = [];
+
+      // loop through every item in the source
+      for (var i = 0; i < source.length; i++) {
+        if( source[i].word != undefined ) {
+          // if the item is a word, look it up in the dictionary
+          var wordValue = Munch.dictionary[source[i].word];
+          if( typeof wordValue == "function" ) {
+            // if the word's value is a function execute it with the current stack as an argument
+            // make current stack into the result
+            stack = wordValue(stack.clone());
+          } else if( typeof wordValue == "object" ) {
+            // if the word's value is a quotation, execute it on the current stack
+            for (j = 0; j < wordValue.length; j++) {
+                stack.push(wordValue[j]);
+                stack = Munch.eval(stack.clone());
+            }
+          } else if( wordValue == undefined ) {
+            // if the word's value was not found, throw an error
+            throw new Error("Unknown word '" + source[i].word + "'!");
+
+          } else {
+            // else, we know the word's value is not a function or undefined, push it to the stack
+            stack.push(wordValue);
+          }
+
+        } else {
+          // else, we know that the item is not a word, push it to the stack
+          stack.push(source[i]);
+
+        }
+      }
+
+      // return the stack we operated on
+      return stack;
+    }
+  }
+</script>
+
+<title>Munch + Stick Figure</title>
+
+<grammar>
+  start       = p:literal+ { return Munch.eval(p) }
+
+  literal     = number / string / quotation / word
+
+  word        = w:[^\[\] ]+ space { return { word:w.join('') } }
+
+  quotation   = '[' q:literal+ ']' space { return q }
+
+  string      = '"' s:[^"]* '"' space { return s.join('') }
+
+  number      = float / integer
+  float       = s:'-'? n:(digit* '.' digit+) space { return parseFloat(s + n.flatten().join('')) }
+  integer     = s:'-'? d:digit+ space { return parseInt(s + d.join('')) }
+
+  digit       = [0123456789]
+
+  space       = ' '*
+  SPACE       = ' '+ / !.
+</grammar>
+
+<br>I've added some functions to control the stick figure animations. Try wave, sit, stand, shrug, walk (all with no args). Also you can change his emotion with happy, angry, sad (these look best when he's walking).<br><br>Also you can transform the parent geometry of the renderer with translate and rotate, which both take three number args (z y x).
