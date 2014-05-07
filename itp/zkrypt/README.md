@@ -2,6 +2,8 @@
 
 ======
 
+don't bother building if you don't want. [test here](http://evanmoore.no-ip.org/itp/zkrypt/zkrypt.html)
+
 ## requirements
 
 * [noize renderer](http://github.com/2emoore4/noize)
