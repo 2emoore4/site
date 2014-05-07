@@ -111,7 +111,7 @@
     return person_facing_right = !person_facing_right;
   };
 
- var something = function(event) {
+ window.onkeydown = function(event) {
     console.log(event.which);
     switch (event.which) {
       case 37:
